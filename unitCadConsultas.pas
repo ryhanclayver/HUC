@@ -17,15 +17,12 @@ type
     gridPaciente: TDBGrid;
     lblNomeMedico: TLabel;
     gridMedico: TDBGrid;
-    btnBuscaMedico: TButton;
     edtNomeMedico: TDBEdit;
     edtNomePaciente: TDBEdit;
     edtData: TDBEdit;
     lblData: TLabel;
     lblValor: TLabel;
     edtValor: TDBEdit;
-    btnMarcar: TButton;
-    btnCancelar: TButton;
     menu: TMainMenu;
     MarcarConsulta1: TMenuItem;
     HistricodeConsultas1: TMenuItem;
@@ -36,7 +33,8 @@ type
     Nutricionista1: TMenuItem;
     Cardiologista1: TMenuItem;
     Pediatra1: TMenuItem;
-    btnBuscaPaciente: TSpeedButton;
+    btnCancelar: TSpeedButton;
+    btnMarcar: TSpeedButton;
     procedure btnCancelarClick(Sender: TObject);
   private
     { Private declarations }

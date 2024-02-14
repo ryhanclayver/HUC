@@ -28,7 +28,6 @@ object DM: TDM
       FieldName = 'ID_MEDICO'
       Origin = 'ID_MEDICO'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object tbMedicoNOME: TStringField
       FieldName = 'NOME'
@@ -45,11 +44,13 @@ object DM: TDM
       FieldName = 'CPF'
       Origin = 'CPF'
       Required = True
+      EditMask = '###.###.###-##;1;_'
       Size = 14
     end
     object tbMedicoNUMERO: TStringField
       FieldName = 'NUMERO'
       Origin = 'NUMERO'
+      EditMask = '(##)#####-####;1;_'
       Size = 14
     end
     object tbMedicoENDERECO: TStringField
@@ -61,6 +62,7 @@ object DM: TDM
       FieldName = 'DATANASC'
       Origin = 'DATANASC'
       Required = True
+      EditMask = '##/##/####;1;_'
     end
     object tbMedicoESPECIALIDADE: TStringField
       FieldName = 'ESPECIALIDADE'
@@ -75,68 +77,6 @@ object DM: TDM
       FieldName = 'GENERO'
       Origin = 'GENERO'
       Size = 10
-    end
-  end
-  object tbPaciente: TFDTable
-    Active = True
-    IndexFieldNames = 'ID_PACIENTE'
-    Connection = conexao
-    UpdateOptions.UpdateTableName = 'PACIENTE'
-    TableName = 'PACIENTE'
-    Left = 96
-    Top = 80
-    object tbPacienteID_PACIENTE: TIntegerField
-      FieldName = 'ID_PACIENTE'
-      Origin = 'ID_PACIENTE'
-      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
-    end
-    object tbPacienteNOME: TStringField
-      FieldName = 'NOME'
-      Origin = 'NOME'
-      Required = True
-      Size = 100
-    end
-    object tbPacienteCPF: TStringField
-      FieldName = 'CPF'
-      Origin = 'CPF'
-      Required = True
-      Size = 14
-    end
-    object tbPacienteNUMERO: TStringField
-      FieldName = 'NUMERO'
-      Origin = 'NUMERO'
-      Size = 14
-    end
-    object tbPacienteDATANASC: TDateField
-      FieldName = 'DATANASC'
-      Origin = 'DATANASC'
-      Required = True
-    end
-    object tbPacienteENDERECO: TStringField
-      FieldName = 'ENDERECO'
-      Origin = 'ENDERECO'
-      Size = 255
-    end
-    object tbPacientePLANO: TSmallintField
-      FieldName = 'PLANO'
-      Origin = 'PLANO'
-      Required = True
-    end
-    object tbPacienteDATACAD: TDateField
-      FieldName = 'DATACAD'
-      Origin = 'DATACAD'
-      Required = True
-    end
-    object tbPacienteRG: TStringField
-      FieldName = 'RG'
-      Origin = 'RG'
-    end
-    object tbPacienteGENERO: TStringField
-      FieldName = 'GENERO'
-      Origin = 'GENERO'
-      FixedChar = True
-      Size = 1
     end
   end
   object tbConsulta: TFDTable
@@ -166,6 +106,7 @@ object DM: TDM
     object tbConsultaDATA: TDateField
       FieldName = 'DATA'
       Origin = '"DATA"'
+      EditMask = '##/##/####;1;_'
     end
     object tbConsultaVALOR: TCurrencyField
       FieldName = 'VALOR'
@@ -177,14 +118,73 @@ object DM: TDM
     Left = 168
     Top = 144
   end
-  object dsPaciente: TDataSource
-    DataSet = tbPaciente
-    Left = 96
-    Top = 144
-  end
   object dsMedico: TDataSource
     DataSet = tbMedico
     Left = 24
+    Top = 144
+  end
+  object tbPaciente: TFDTable
+    Active = True
+    IndexFieldNames = 'ID_PACIENTE'
+    Connection = conexao
+    UpdateOptions.UpdateTableName = 'PACIENTE'
+    TableName = 'PACIENTE'
+    Left = 96
+    Top = 80
+    object tbPacienteID_PACIENTE: TIntegerField
+      FieldName = 'ID_PACIENTE'
+      Origin = 'ID_PACIENTE'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object tbPacienteNOME: TStringField
+      FieldName = 'NOME'
+      Origin = 'NOME'
+      Size = 100
+    end
+    object tbPacienteCPF: TStringField
+      FieldName = 'CPF'
+      Origin = 'CPF'
+      EditMask = '###.###.###-##;1;_'
+      Size = 14
+    end
+    object tbPacienteNUMERO: TStringField
+      FieldName = 'NUMERO'
+      Origin = 'NUMERO'
+      EditMask = '(##)#####-####;1;_'
+      Size = 14
+    end
+    object tbPacienteDATANASC: TDateField
+      FieldName = 'DATANASC'
+      Origin = 'DATANASC'
+      EditMask = '##/##/####;1;_'
+    end
+    object tbPacienteENDERECO: TStringField
+      FieldName = 'ENDERECO'
+      Origin = 'ENDERECO'
+      Size = 255
+    end
+    object tbPacientePLANO: TStringField
+      FieldName = 'PLANO'
+      Origin = 'PLANO'
+      Size = 3
+    end
+    object tbPacienteDATACAD: TDateField
+      FieldName = 'DATACAD'
+      Origin = 'DATACAD'
+    end
+    object tbPacienteRG: TStringField
+      FieldName = 'RG'
+      Origin = 'RG'
+    end
+    object tbPacienteGENERO: TStringField
+      FieldName = 'GENERO'
+      Origin = 'GENERO'
+      Size = 10
+    end
+  end
+  object dsPaciente: TDataSource
+    DataSet = tbPaciente
+    Left = 96
     Top = 144
   end
 end

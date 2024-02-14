@@ -14,21 +14,9 @@ type
   TDM = class(TDataModule)
     conexao: TFDConnection;
     tbMedico: TFDTable;
-    tbPaciente: TFDTable;
     tbConsulta: TFDTable;
     dsConsulta: TDataSource;
-    dsPaciente: TDataSource;
     dsMedico: TDataSource;
-    tbPacienteID_PACIENTE: TIntegerField;
-    tbPacienteNOME: TStringField;
-    tbPacienteCPF: TStringField;
-    tbPacienteNUMERO: TStringField;
-    tbPacienteDATANASC: TDateField;
-    tbPacienteENDERECO: TStringField;
-    tbPacientePLANO: TSmallintField;
-    tbPacienteDATACAD: TDateField;
-    tbPacienteRG: TStringField;
-    tbPacienteGENERO: TStringField;
     tbMedicoID_MEDICO: TIntegerField;
     tbMedicoNOME: TStringField;
     tbMedicoCRM: TStringField;
@@ -44,6 +32,18 @@ type
     tbConsultaID_PACIENTE: TIntegerField;
     tbConsultaDATA: TDateField;
     tbConsultaVALOR: TCurrencyField;
+    tbPaciente: TFDTable;
+    dsPaciente: TDataSource;
+    tbPacienteID_PACIENTE: TIntegerField;
+    tbPacienteNOME: TStringField;
+    tbPacienteCPF: TStringField;
+    tbPacienteNUMERO: TStringField;
+    tbPacienteDATANASC: TDateField;
+    tbPacienteENDERECO: TStringField;
+    tbPacientePLANO: TStringField;
+    tbPacienteDATACAD: TDateField;
+    tbPacienteRG: TStringField;
+    tbPacienteGENERO: TStringField;
   private
     { Private declarations }
   public

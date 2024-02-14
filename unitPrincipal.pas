@@ -17,7 +17,6 @@ type
     pnlFooter: TPanel;
     pnlButtons: TPanel;
     pnlCentral: TPanel;
-    imgLogoGrande: TImage;
     btnPacientes: TSpeedButton;
     btnSair: TSpeedButton;
     btnMedicos: TSpeedButton;
@@ -27,6 +26,7 @@ type
     pnlVersao: TPanel;
     lblNomeHeader: TLabel;
     imgUserWhite: TImage;
+    imgLogoGrande: TImage;
     procedure btnSairClick(Sender: TObject);
     procedure btnPacientesClick(Sender: TObject);
     procedure SpeedButton2Click(Sender: TObject);
