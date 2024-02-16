@@ -1,4 +1,4 @@
-object FormPrincipal: TFormPrincipal
+object formPrincipal: TformPrincipal
   Left = 0
   Top = 0
   BorderStyle = bsNone
@@ -27,7 +27,6 @@ object FormPrincipal: TFormPrincipal
     Color = 15261868
     ParentBackground = False
     TabOrder = 0
-    ExplicitWidth = 804
     object lblNomeHeader: TLabel
       Left = 160
       Top = 0
@@ -165,7 +164,6 @@ object FormPrincipal: TFormPrincipal
       ParentBackground = False
       ParentFont = False
       TabOrder = 1
-      ExplicitLeft = 721
       object imgUserWhite: TImage
         AlignWithMargins = True
         Left = 3
@@ -267,7 +265,6 @@ object FormPrincipal: TFormPrincipal
     Color = 15261868
     ParentBackground = False
     TabOrder = 1
-    ExplicitWidth = 804
     object btnSair: TSpeedButton
       Left = 672
       Top = 16
@@ -1412,7 +1409,6 @@ object FormPrincipal: TFormPrincipal
     Height = 390
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 643
     object imgLogoGrande: TImage
       AlignWithMargins = True
       Left = 4

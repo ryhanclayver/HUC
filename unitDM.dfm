@@ -32,18 +32,15 @@ object DM: TDM
     object tbMedicoNOME: TStringField
       FieldName = 'NOME'
       Origin = 'NOME'
-      Required = True
       Size = 100
     end
     object tbMedicoCRM: TStringField
       FieldName = 'CRM'
       Origin = 'CRM'
-      Required = True
     end
     object tbMedicoCPF: TStringField
       FieldName = 'CPF'
       Origin = 'CPF'
-      Required = True
       EditMask = '###.###.###-##;1;_'
       Size = 14
     end
@@ -61,13 +58,11 @@ object DM: TDM
     object tbMedicoDATANASC: TDateField
       FieldName = 'DATANASC'
       Origin = 'DATANASC'
-      Required = True
       EditMask = '##/##/####;1;_'
     end
     object tbMedicoESPECIALIDADE: TStringField
       FieldName = 'ESPECIALIDADE'
       Origin = 'ESPECIALIDADE'
-      Required = True
     end
     object tbMedicoRG: TStringField
       FieldName = 'RG'
@@ -91,17 +86,14 @@ object DM: TDM
       FieldName = 'ID_CONSULTA'
       Origin = 'ID_CONSULTA'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
-      Required = True
     end
     object tbConsultaID_MEDICO: TIntegerField
       FieldName = 'ID_MEDICO'
       Origin = 'ID_MEDICO'
-      Required = True
     end
     object tbConsultaID_PACIENTE: TIntegerField
       FieldName = 'ID_PACIENTE'
       Origin = 'ID_PACIENTE'
-      Required = True
     end
     object tbConsultaDATA: TDateField
       FieldName = 'DATA'
@@ -132,6 +124,7 @@ object DM: TDM
     Left = 96
     Top = 80
     object tbPacienteID_PACIENTE: TIntegerField
+      AutoGenerateValue = arAutoInc
       FieldName = 'ID_PACIENTE'
       Origin = 'ID_PACIENTE'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
@@ -186,5 +179,130 @@ object DM: TDM
     DataSet = tbPaciente
     Left = 96
     Top = 144
+  end
+  object QueryNutricionista: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where medico.especialidade = '#39'Nutricionista'#39' AND'
+      'consulta.data >= CURRENT_DATE'
+      'order by consulta.data desc')
+    Left = 576
+    Top = 80
+  end
+  object dsNutricionista: TDataSource
+    DataSet = QueryNutricionista
+    Left = 576
+    Top = 136
+  end
+  object QueryPediatra: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where medico.especialidade = '#39'Pediatra'#39' AND'
+      'consulta.data >= CURRENT_DATE'
+      'order by consulta.data desc ')
+    Left = 480
+    Top = 80
+  end
+  object dsPediatra: TDataSource
+    DataSet = QueryPediatra
+    Left = 480
+    Top = 136
+  end
+  object QueryCardiologista: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where medico.especialidade = '#39'Cardiologista'#39' AND'
+      'consulta.data >= CURRENT_DATE'
+      'order by consulta.data desc; ')
+    Left = 392
+    Top = 80
+  end
+  object dsCardiologista: TDataSource
+    DataSet = QueryCardiologista
+    Left = 392
+    Top = 136
+  end
+  object QueryHistorico: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where consulta.data < CURRENT_DATE'
+      'order by data desc; ')
+    Left = 24
+    Top = 288
+  end
+  object dsHistorico: TDataSource
+    DataSet = QueryHistorico
+    Left = 24
+    Top = 344
+  end
+  object QueryCPlano: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where consulta.data < CURRENT_DATE AND'
+      'paciente.plano = '#39'Sim'#39
+      'order by data desc;')
+    Left = 104
+    Top = 288
+  end
+  object dsCPlano: TDataSource
+    DataSet = QueryCPlano
+    Left = 104
+    Top = 344
+  end
+  object QuerySPlano: TFDQuery
+    Connection = conexao
+    SQL.Strings = (
+      
+        'select consulta.data, consulta.valor, paciente.nome from consult' +
+        'a'
+      'inner join medico on consulta.id_medico = medico.id_medico'
+      
+        'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
+        'te'
+      'where consulta.data < CURRENT_DATE AND'
+      'paciente.plano = '#39'N'#227'o'#39
+      'order by data desc;')
+    Left = 184
+    Top = 288
+  end
+  object dsSPlano: TDataSource
+    DataSet = QuerySPlano
+    Left = 184
+    Top = 344
   end
 end

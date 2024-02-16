@@ -62,6 +62,7 @@ procedure TformCadPacientes.btnCadastrarClick(Sender: TObject);
 begin
   edtNomePaciente.SetFocus;
 
+  gridPaciente.ReadOnly := False;
   btnCadastrar.Enabled := False;
   btnDeletar.Enabled := False;
   btnEditar.Enabled := False;
@@ -87,6 +88,7 @@ procedure TformCadPacientes.btnVoltarClick(Sender: TObject);
 
 procedure TformCadPacientes.FormCreate(Sender: TObject);
 begin
+  gridPaciente.ReadOnly := True;
   btnCancelar.Enabled := False;
   btnSalvar.Enabled := False;
 
@@ -120,6 +122,8 @@ begin
   edtEndereco.Enabled := False;
 
   DM.tbPaciente.Cancel;
+
+  gridPaciente.ReadOnly := True;
 end;
 
 procedure TformCadPacientes.btnDeletarClick(Sender: TObject);
@@ -142,12 +146,15 @@ begin
       edtEndereco.Enabled := False;
 
       DM.tbPaciente.Delete;
+
+      gridPaciente.ReadOnly := True;
     end;
 
 end;
 
 procedure TformCadPacientes.btnEditarClick(Sender: TObject);
 begin
+  gridPaciente.ReadOnly := False;
   btnSalvar.Enabled := True;
   btnCancelar.Enabled := True;
   btnCadastrar.Enabled := False;
@@ -183,6 +190,7 @@ begin
 
   DM.tbPaciente.Last;
 
+  gridPaciente.ReadOnly := True;
   edtNomePaciente.Enabled := False;
   edtCPF.Enabled := False;
   edtCelular.Enabled := False;

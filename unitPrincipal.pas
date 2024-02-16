@@ -8,7 +8,7 @@ uses
   Vcl.StdCtrls, Vcl.Buttons;
 
 type
-  TFormPrincipal = class(TForm)
+  TformPrincipal = class(TForm)
     lblHUC: TLabel;
     imgUser: TImage;
     imgLogoPequena: TImage;
@@ -65,7 +65,7 @@ type
   end;
 
 var
-  FormPrincipal: TFormPrincipal;
+  formPrincipal: TformPrincipal;
 
 implementation
 
@@ -73,128 +73,128 @@ implementation
 
 uses unitDM, unitCadPacientes, unitCadMedicos, unitCadConsultas;
 
-procedure TFormPrincipal.btnSairClick(Sender: TObject);
+procedure TformPrincipal.btnSairClick(Sender: TObject);
 begin
   Application.Terminate;
 end;
 
-procedure TFormPrincipal.btnSairMouseActivate(Sender: TObject;
+procedure TformPrincipal.btnSairMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
 begin
   btnSair.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnSairMouseEnter(Sender: TObject);
+procedure TformPrincipal.btnSairMouseEnter(Sender: TObject);
 begin
   btnSair.Font.Color := clRed;
 end;
 
-procedure TFormPrincipal.btnSairMouseLeave(Sender: TObject);
+procedure TformPrincipal.btnSairMouseLeave(Sender: TObject);
 begin
   btnSair.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.imgUserMouseEnter(Sender: TObject);
+procedure TformPrincipal.imgUserMouseEnter(Sender: TObject);
 begin
   imgUser.Visible := false;
   imgUserWhite.Visible := true;
 end;
 
-procedure TFormPrincipal.imgUserMouseLeave(Sender: TObject);
+procedure TformPrincipal.imgUserMouseLeave(Sender: TObject);
 begin
   imgUser.Visible := true;
   imgUserWhite.Visible := false;
 
 end;
 
-procedure TFormPrincipal.lblHUCMouseEnter(Sender: TObject);
+procedure TformPrincipal.lblHUCMouseEnter(Sender: TObject);
 begin
   lblHUC.Font.Color := clWhite;
 end;
 
-procedure TFormPrincipal.lblHUCMouseLeave(Sender: TObject);
+procedure TformPrincipal.lblHUCMouseLeave(Sender: TObject);
 begin
   lblHUC.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.lblNomeHeaderMouseEnter(Sender: TObject);
+procedure TformPrincipal.lblNomeHeaderMouseEnter(Sender: TObject);
 begin
   lblNomeHeader.Font.Color := clWhite;
 end;
 
-procedure TFormPrincipal.lblNomeHeaderMouseLeave(Sender: TObject);
+procedure TformPrincipal.lblNomeHeaderMouseLeave(Sender: TObject);
 begin
   lblNomeHeader.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnConsultasClick(Sender: TObject);
+procedure TformPrincipal.btnConsultasClick(Sender: TObject);
 begin
   formCadConsultas.ShowModal;
 end;
 
-procedure TFormPrincipal.btnConsultasMouseActivate(Sender: TObject;
+procedure TformPrincipal.btnConsultasMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
 begin
   btnConsultas.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnConsultasMouseEnter(Sender: TObject);
+procedure TformPrincipal.btnConsultasMouseEnter(Sender: TObject);
 begin
   btnConsultas.Font.Color := clWhite;
 end;
 
-procedure TFormPrincipal.btnConsultasMouseLeave(Sender: TObject);
+procedure TformPrincipal.btnConsultasMouseLeave(Sender: TObject);
 begin
   btnConsultas.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnMedicosClick(Sender: TObject);
+procedure TformPrincipal.btnMedicosClick(Sender: TObject);
 begin
   formCadMedicos.ShowModal;
 end;
 
-procedure TFormPrincipal.btnMedicosMouseActivate(Sender: TObject;
+procedure TformPrincipal.btnMedicosMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
 begin
   btnMedicos.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnMedicosMouseEnter(Sender: TObject);
+procedure TformPrincipal.btnMedicosMouseEnter(Sender: TObject);
 begin
   btnMedicos.Font.Color := clWhite;
 end;
 
-procedure TFormPrincipal.btnMedicosMouseLeave(Sender: TObject);
+procedure TformPrincipal.btnMedicosMouseLeave(Sender: TObject);
 begin
   btnMedicos.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnPacientesClick(Sender: TObject);
+procedure TformPrincipal.btnPacientesClick(Sender: TObject);
 begin
   formCadPacientes.ShowModal;
 end;
 
-procedure TFormPrincipal.btnPacientesMouseActivate(Sender: TObject;
+procedure TformPrincipal.btnPacientesMouseActivate(Sender: TObject;
   Button: TMouseButton; Shift: TShiftState; X, Y, HitTest: Integer;
   var MouseActivate: TMouseActivate);
 begin
   btnPacientes.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.btnPacientesMouseEnter(Sender: TObject);
+procedure TformPrincipal.btnPacientesMouseEnter(Sender: TObject);
 begin
   btnPacientes.Font.Color := clWhite;
 end;
 
-procedure TFormPrincipal.btnPacientesMouseLeave(Sender: TObject);
+procedure TformPrincipal.btnPacientesMouseLeave(Sender: TObject);
 begin
   btnPacientes.Font.Color := clBlack;
 end;
 
-procedure TFormPrincipal.SpeedButton2Click(Sender: TObject);
+procedure TformPrincipal.SpeedButton2Click(Sender: TObject);
 begin
   Application.Terminate;
 end;

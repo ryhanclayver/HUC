@@ -1,4 +1,4 @@
-object FormCadMedicos: TFormCadMedicos
+object formCadMedicos: TformCadMedicos
   Left = 0
   Top = 0
   BorderStyle = bsNone
@@ -1547,7 +1547,7 @@ object FormCadMedicos: TFormCadMedicos
   object gridMedico: TDBGrid
     Left = 8
     Top = 312
-    Width = 409
+    Width = 425
     Height = 181
     DataSource = DM.dsMedico
     Font.Charset = ANSI_CHARSET
@@ -1599,7 +1599,7 @@ object FormCadMedicos: TFormCadMedicos
       end>
   end
   object edtNomeSearch: TDBEdit
-    Left = 423
+    Left = 439
     Top = 424
     Width = 71
     Height = 26

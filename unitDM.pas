@@ -44,6 +44,18 @@ type
     tbPacienteDATACAD: TDateField;
     tbPacienteRG: TStringField;
     tbPacienteGENERO: TStringField;
+    QueryNutricionista: TFDQuery;
+    dsNutricionista: TDataSource;
+    QueryPediatra: TFDQuery;
+    dsPediatra: TDataSource;
+    QueryCardiologista: TFDQuery;
+    dsCardiologista: TDataSource;
+    QueryHistorico: TFDQuery;
+    dsHistorico: TDataSource;
+    QueryCPlano: TFDQuery;
+    dsCPlano: TDataSource;
+    QuerySPlano: TFDQuery;
+    dsSPlano: TDataSource;
   private
     { Private declarations }
   public

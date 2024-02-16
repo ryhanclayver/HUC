@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="unitPrincipal.pas">
-            <Form>FormPrincipal</Form>
+            <Form>formPrincipal</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unitDM.pas">
@@ -108,15 +108,39 @@
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="unitCadMedicos.pas">
-            <Form>FormCadMedicos</Form>
+            <Form>formCadMedicos</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unitCadConsultas.pas">
-            <Form>FormCadConsultas</Form>
+            <Form>formCadConsultas</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="unitCadPacientes.pas">
             <Form>formCadPacientes</Form>
+        </DCCReference>
+        <DCCReference Include="unitAgendaNutricionista.pas">
+            <Form>formAgendaNutri</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitAgendaCardiologista.pas">
+            <Form>formAgendaCardi</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitAgendaPediatra.pas">
+            <Form>formAgendaPed</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitHistorico.pas">
+            <Form>formHistorico</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitHistoricoComPlano.pas">
+            <Form>formHistoricoComPlano</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="unitHistoricoSemPlano.pas">
+            <Form>formHistoricoSemPlano</Form>
+            <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>

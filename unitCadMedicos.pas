@@ -9,7 +9,7 @@ uses
   Vcl.DBGrids, Vcl.Buttons;
 
 type
-  TFormCadMedicos = class(TForm)
+  TformCadMedicos = class(TForm)
     pnlHeader: TPanel;
     lblCadastroMedico: TLabel;
     imgLogoPequena: TImage;
@@ -53,7 +53,7 @@ type
   end;
 
 var
-  FormCadMedicos: TFormCadMedicos;
+  formCadMedicos: TformCadMedicos;
 
 implementation
 
@@ -61,8 +61,10 @@ implementation
 
 uses unitDM;
 
-procedure TFormCadMedicos.btnCadastrarClick(Sender: TObject);
+procedure TformCadMedicos.btnCadastrarClick(Sender: TObject);
 begin
+  gridMedico.ReadOnly := False;
+
   btnCadastrar.Enabled := False;
   btnDeletar.Enabled := False;
   btnEditar.Enabled := False;
@@ -84,7 +86,7 @@ begin
   DM.tbMedico.Insert;
 end;
 
-procedure TFormCadMedicos.btnCancelarClick(Sender: TObject);
+procedure TformCadMedicos.btnCancelarClick(Sender: TObject);
 begin
   ActiveControl := nil;
 
@@ -105,9 +107,11 @@ begin
   edtCRM.Enabled := False;
 
   DM.tbMedico.Cancel;
+
+  gridMedico.ReadOnly := True;
 end;
 
-procedure TFormCadMedicos.btnDeletarClick(Sender: TObject);
+procedure TformCadMedicos.btnDeletarClick(Sender: TObject);
 begin
   if Application.MessageBox('Deseja mesmo deletar esse cadastro?','Deletar cadastro', MB_ICONQUESTION+MB_YESNO) = mrYes then
     begin
@@ -119,6 +123,7 @@ begin
 
       DM.tbMedico.Delete;
 
+      gridMedico.ReadOnly := True;
       edtNome.Enabled := False;
       edtCPF.Enabled := False;
       edtCelular.Enabled := False;
@@ -131,12 +136,13 @@ begin
     end;
 end;
 
-procedure TFormCadMedicos.btnEditarClick(Sender: TObject);
+procedure TformCadMedicos.btnEditarClick(Sender: TObject);
 begin
   btnSalvar.Enabled := True;
   btnCancelar.Enabled := True;
   btnCadastrar.Enabled := False;
   btnDeletar.Enabled := False;
+  gridMedico.ReadOnly := False;
 
   DM.tbMedico.Edit;
 
@@ -151,7 +157,7 @@ begin
   edtCRM.Enabled := True;
 end;
 
-procedure TFormCadMedicos.btnSalvarClick(Sender: TObject);
+procedure TformCadMedicos.btnSalvarClick(Sender: TObject);
 begin
   ActiveControl := nil;
 
@@ -165,6 +171,7 @@ begin
 
   DM.tbMedico.Last;
 
+  gridMedico.ReadOnly := True;
   edtNome.Enabled := False;
   edtCPF.Enabled := False;
   edtCelular.Enabled := False;
@@ -176,13 +183,14 @@ begin
   edtCRM.Enabled := False;
 end;
 
-procedure TFormCadMedicos.btnVoltarClick(Sender: TObject);
+procedure TformCadMedicos.btnVoltarClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFormCadMedicos.FormCreate(Sender: TObject);
+procedure TformCadMedicos.FormCreate(Sender: TObject);
 begin
+  gridMedico.ReadOnly := True;
   btnCancelar.Enabled := False;
   btnSalvar.Enabled := False;
 
