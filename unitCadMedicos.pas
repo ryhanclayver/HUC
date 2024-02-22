@@ -39,13 +39,16 @@ type
     btnEditar: TSpeedButton;
     btnDeletar: TSpeedButton;
     btnCadastrar: TSpeedButton;
+    edtPesquisa: TEdit;
+    lblPesquisa: TLabel;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnCadastrarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure edtPesquisaChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -113,7 +116,7 @@ end;
 
 procedure TformCadMedicos.btnDeletarClick(Sender: TObject);
 begin
-  if Application.MessageBox('Deseja mesmo deletar esse cadastro?','Deletar cadastro', MB_ICONQUESTION+MB_YESNO) = mrYes then
+  if Application.MessageBox('Deseja mesmo deletar esse médico?','Deletar médico', MB_ICONQUESTION+MB_YESNO) = mrYes then
     begin
       btnSalvar.Enabled := False;
       btnCancelar.Enabled := False;
@@ -188,7 +191,12 @@ begin
   Close;
 end;
 
-procedure TformCadMedicos.FormCreate(Sender: TObject);
+procedure TformCadMedicos.edtPesquisaChange(Sender: TObject);
+begin
+  DM.tbMedico.Locate('nome', edtPesquisa.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TformCadMedicos.FormShow(Sender: TObject);
 begin
   gridMedico.ReadOnly := True;
   btnCancelar.Enabled := False;

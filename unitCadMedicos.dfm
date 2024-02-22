@@ -13,12 +13,12 @@ object formCadMedicos: TformCadMedicos
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblNome: TLabel
     Left = 8
-    Top = 88
+    Top = 72
     Width = 153
     Height = 23
     Caption = 'Nome Completo'
@@ -31,7 +31,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblCPF: TLabel
     Left = 340
-    Top = 88
+    Top = 72
     Width = 35
     Height = 23
     Caption = 'CPF'
@@ -44,7 +44,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblCelular: TLabel
     Left = 571
-    Top = 88
+    Top = 72
     Width = 67
     Height = 23
     Caption = 'Celular'
@@ -57,7 +57,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblNascimento: TLabel
     Left = 8
-    Top = 160
+    Top = 144
     Width = 111
     Height = 23
     Caption = 'Nascimento'
@@ -70,7 +70,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblRG: TLabel
     Left = 160
-    Top = 160
+    Top = 144
     Width = 28
     Height = 23
     Caption = 'RG'
@@ -83,7 +83,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblCRM: TLabel
     Left = 380
-    Top = 160
+    Top = 144
     Width = 42
     Height = 23
     Caption = 'CRM'
@@ -96,7 +96,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblEspecialidade: TLabel
     Left = 8
-    Top = 224
+    Top = 208
     Width = 130
     Height = 23
     Caption = 'Especialidade'
@@ -109,7 +109,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblGenero: TLabel
     Left = 629
-    Top = 160
+    Top = 144
     Width = 69
     Height = 23
     Caption = 'G'#234'nero'
@@ -122,7 +122,7 @@ object formCadMedicos: TformCadMedicos
   end
   object lblEndereco: TLabel
     Left = 188
-    Top = 224
+    Top = 208
     Width = 88
     Height = 23
     Caption = 'Endere'#231'o'
@@ -1449,6 +1449,19 @@ object formCadMedicos: TformCadMedicos
     ParentFont = False
     OnClick = btnCadastrarClick
   end
+  object lblPesquisa: TLabel
+    Left = 8
+    Top = 281
+    Width = 170
+    Height = 25
+    Caption = 'Pesquisar Nome'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+  end
   object pnlHeader: TPanel
     Left = 0
     Top = 0
@@ -1615,7 +1628,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtCPF: TDBEdit
     Left = 340
-    Top = 117
+    Top = 101
     Width = 190
     Height = 26
     DataField = 'CPF'
@@ -1631,7 +1644,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtCelular: TDBEdit
     Left = 571
-    Top = 117
+    Top = 101
     Width = 185
     Height = 26
     DataField = 'NUMERO'
@@ -1647,7 +1660,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtRG: TDBEdit
     Left = 160
-    Top = 184
+    Top = 168
     Width = 190
     Height = 26
     DataField = 'RG'
@@ -1662,7 +1675,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtCRM: TDBEdit
     Left = 380
-    Top = 184
+    Top = 168
     Width = 193
     Height = 26
     DataField = 'CRM'
@@ -1677,7 +1690,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtEndereco: TDBEdit
     Left = 190
-    Top = 253
+    Top = 237
     Width = 460
     Height = 26
     DataField = 'ENDERECO'
@@ -1692,7 +1705,7 @@ object formCadMedicos: TformCadMedicos
   end
   object comboGenero: TDBComboBox
     Left = 626
-    Top = 184
+    Top = 168
     Width = 130
     Height = 26
     Style = csDropDownList
@@ -1712,7 +1725,7 @@ object formCadMedicos: TformCadMedicos
   end
   object comboEspecialidade: TDBComboBox
     Left = 8
-    Top = 253
+    Top = 237
     Width = 174
     Height = 26
     Style = csDropDownList
@@ -1732,7 +1745,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtNome: TDBEdit
     Left = 8
-    Top = 117
+    Top = 101
     Width = 293
     Height = 26
     DataField = 'NOME'
@@ -1747,7 +1760,7 @@ object formCadMedicos: TformCadMedicos
   end
   object edtNascimento: TDBEdit
     Left = 8
-    Top = 184
+    Top = 168
     Width = 121
     Height = 26
     DataField = 'DATANASC'
@@ -1760,5 +1773,19 @@ object formCadMedicos: TformCadMedicos
     MaxLength = 10
     ParentFont = False
     TabOrder = 11
+  end
+  object edtPesquisa: TEdit
+    Left = 184
+    Top = 280
+    Width = 249
+    Height = 26
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 12
+    OnChange = edtPesquisaChange
   end
 end

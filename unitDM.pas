@@ -8,7 +8,7 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Phys.FBDef,
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
-  FireDAC.Comp.DataSet;
+  FireDAC.Comp.DataSet, Data.Win.ADODB;
 
 type
   TDM = class(TDataModule)
@@ -56,6 +56,7 @@ type
     dsCPlano: TDataSource;
     QuerySPlano: TFDQuery;
     dsSPlano: TDataSource;
+    qraux: TFDQuery;
   private
     { Private declarations }
   public

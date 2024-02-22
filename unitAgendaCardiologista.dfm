@@ -1113,6 +1113,19 @@ object formAgendaCardi: TformAgendaCardi
     ParentFont = False
     OnClick = btnEditarClick
   end
+  object Label1: TLabel
+    Left = 8
+    Top = 150
+    Width = 86
+    Height = 18
+    Caption = 'Pesquisar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object pnlHeader: TPanel
     Left = 0
     Top = 0
@@ -1217,41 +1230,49 @@ object formAgendaCardi: TformAgendaCardi
   end
   object gridConsulta: TDBGrid
     Left = 8
-    Top = 174
+    Top = 175
     Width = 770
     Height = 272
     DataSource = DM.dsCardiologista
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
     TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Charset = ANSI_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
+    TitleFont.Height = -13
+    TitleFont.Name = 'Verdana'
     TitleFont.Style = []
     Columns = <
       item
         Expanded = False
-        FieldName = 'NOME'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
+        FieldName = 'ID_CONSULTA'
+        Title.Caption = 'ID'
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -11
         Title.Font.Name = 'Verdana'
         Title.Font.Style = [fsBold]
-        Width = 622
+        Width = 38
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'NOME'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'Verdana'
+        Title.Font.Style = [fsBold]
+        Width = 525
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DATA'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -11
@@ -1262,11 +1283,6 @@ object formAgendaCardi: TformAgendaCardi
       item
         Expanded = False
         FieldName = 'VALOR'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -11
@@ -1276,10 +1292,11 @@ object formAgendaCardi: TformAgendaCardi
       end>
   end
   object edtPesquisa: TEdit
-    Left = 8
+    Left = 96
     Top = 152
     Width = 289
     Height = 21
     TabOrder = 2
+    OnChange = edtPesquisaChange
   end
 end

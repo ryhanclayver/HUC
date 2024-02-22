@@ -181,11 +181,12 @@ object DM: TDM
     Top = 144
   end
   object QueryNutricionista: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta,consulta.data, consulta.valor, pacie' +
+        'nte.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -202,11 +203,12 @@ object DM: TDM
     Top = 136
   end
   object QueryPediatra: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta,consulta.data, consulta.valor, pacie' +
+        'nte.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -223,11 +225,12 @@ object DM: TDM
     Top = 136
   end
   object QueryCardiologista: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta,consulta.data, consulta.valor, pacie' +
+        'nte.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -244,11 +247,12 @@ object DM: TDM
     Top = 136
   end
   object QueryHistorico: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta, consulta.data, consulta.valor, paci' +
+        'ente.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -264,11 +268,12 @@ object DM: TDM
     Top = 344
   end
   object QueryCPlano: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta, consulta.data, consulta.valor, paci' +
+        'ente.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -285,11 +290,12 @@ object DM: TDM
     Top = 344
   end
   object QuerySPlano: TFDQuery
+    Active = True
     Connection = conexao
     SQL.Strings = (
       
-        'select consulta.data, consulta.valor, paciente.nome from consult' +
-        'a'
+        'select consulta.id_consulta, consulta.data, consulta.valor, paci' +
+        'ente.nome from consulta'
       'inner join medico on consulta.id_medico = medico.id_medico'
       
         'inner join paciente on consulta.id_paciente = paciente.id_pacien' +
@@ -304,5 +310,10 @@ object DM: TDM
     DataSet = QuerySPlano
     Left = 184
     Top = 344
+  end
+  object qraux: TFDQuery
+    Connection = conexao
+    Left = 104
+    Top = 240
   end
 end

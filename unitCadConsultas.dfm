@@ -962,6 +962,7 @@ object formCadConsultas: TformCadConsultas
     Font.Style = []
     ParentFont = False
     TabOrder = 5
+    OnChange = edtNomeMedicoChange
   end
   object edtNomePaciente: TEdit
     Left = 8
@@ -975,6 +976,7 @@ object formCadConsultas: TformCadConsultas
     Font.Style = []
     ParentFont = False
     TabOrder = 6
+    OnChange = edtNomePacienteChange
   end
   object menu: TMainMenu
     Left = 336

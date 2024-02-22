@@ -13,7 +13,6 @@ object formAgendaNutri: TformAgendaNutri
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnCreate = FormCreate
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
@@ -1114,6 +1113,19 @@ object formAgendaNutri: TformAgendaNutri
     ParentFont = False
     OnClick = btnEditarClick
   end
+  object Label1: TLabel
+    Left = 8
+    Top = 150
+    Width = 86
+    Height = 18
+    Caption = 'Pesquisar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object pnlHeader: TPanel
     Left = 0
     Top = 0
@@ -1216,44 +1228,59 @@ object formAgendaNutri: TformAgendaNutri
       ExplicitHeight = 62
     end
   end
+  object edtPesquisa: TEdit
+    Left = 96
+    Top = 152
+    Width = 289
+    Height = 21
+    TabOrder = 1
+    OnChange = edtPesquisaChange
+  end
   object gridConsulta: TDBGrid
     Left = 8
-    Top = 179
+    Top = 175
     Width = 770
     Height = 272
     DataSource = DM.dsNutricionista
-    Font.Charset = DEFAULT_CHARSET
+    Font.Charset = ANSI_CHARSET
     Font.Color = clWindowText
-    Font.Height = -11
+    Font.Height = -13
     Font.Name = 'Verdana'
     Font.Style = []
     ParentFont = False
-    TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
+    TabOrder = 2
+    TitleFont.Charset = ANSI_CHARSET
     TitleFont.Color = clWindowText
-    TitleFont.Height = -11
+    TitleFont.Height = -13
     TitleFont.Name = 'Verdana'
-    TitleFont.Style = [fsBold]
+    TitleFont.Style = []
     Columns = <
       item
         Expanded = False
+        FieldName = 'ID_CONSULTA'
+        Title.Caption = 'ID'
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'Verdana'
+        Title.Font.Style = [fsBold]
+        Width = 38
+        Visible = True
+      end
+      item
+        Expanded = False
         FieldName = 'NOME'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
-        Width = 606
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'Verdana'
+        Title.Font.Style = [fsBold]
+        Width = 525
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'DATA'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
         Title.Font.Charset = ANSI_CHARSET
         Title.Font.Color = clWindowText
         Title.Font.Height = -11
@@ -1264,19 +1291,12 @@ object formAgendaNutri: TformAgendaNutri
       item
         Expanded = False
         FieldName = 'VALOR'
-        Font.Charset = ANSI_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -13
-        Font.Name = 'Verdana'
-        Font.Style = []
+        Title.Font.Charset = ANSI_CHARSET
+        Title.Font.Color = clWindowText
+        Title.Font.Height = -11
+        Title.Font.Name = 'Verdana'
+        Title.Font.Style = [fsBold]
         Visible = True
       end>
-  end
-  object edtPesquisa: TEdit
-    Left = 8
-    Top = 152
-    Width = 289
-    Height = 21
-    TabOrder = 2
   end
 end

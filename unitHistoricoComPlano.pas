@@ -17,9 +17,11 @@ type
     btnVoltar: TSpeedButton;
     gridConsulta: TDBGrid;
     edtPesquisa: TEdit;
+    Label1: TLabel;
     procedure btnVoltarClick(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure edtPesquisaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -36,13 +38,23 @@ implementation
 uses unitDM;
 
 procedure TformHistoricoComPlano.btnDeletarClick(Sender: TObject);
+var
+  ID_Consulta : Integer;
 begin
-  if Application.MessageBox('Deseja mesmo deletar esse cadastro?','Deletar cadastro', MB_ICONQUESTION+MB_YESNO) = mrYes then
+  if Application.MessageBox('Deseja mesmo deletar essa consulta?','Deletar consulta', MB_ICONQUESTION+MB_YESNO) = mrYes then
     begin
-      DM.tbConsulta.Delete;
+      try
+        ID_Consulta := DM.QueryCPlano.FieldByName('id_consulta').AsInteger;
 
-      DM.tbConsulta.Refresh;
-      gridConsulta.Refresh;
+        DM.qraux.SQL.Text := 'delete from consulta where id_consulta = :ID';
+        DM.qraux.ParamByName('ID').AsInteger := ID_Consulta;
+        DM.qraux.ExecSQL;
+        DM.QueryCPlano.Refresh;
+
+      except
+        on e:exception do
+          showmessage('Erro ao efetuar operação: ' + e.Message);
+      end;
     end;
 end;
 
@@ -51,10 +63,16 @@ begin
   Close;
 end;
 
+procedure TformHistoricoComPlano.edtPesquisaChange(Sender: TObject);
+begin
+  DM.QueryCPlano.Locate('nome', edtPesquisa.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
 procedure TformHistoricoComPlano.FormShow(Sender: TObject);
 begin
-  DM.tbConsulta.Refresh;
-  gridConsulta.Refresh;
+  DM.QuerySPlano.Refresh;
+
+  gridConsulta.ReadOnly := True;
 end;
 
 end.

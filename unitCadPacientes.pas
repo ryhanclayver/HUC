@@ -36,13 +36,16 @@ type
     btnCancelar: TSpeedButton;
     btnEditar: TSpeedButton;
     dateNascimento: TDBEdit;
+    edtPesquisa: TEdit;
+    Label1: TLabel;
     procedure btnVoltarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnCadastrarClick(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure edtPesquisaChange(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -60,6 +63,7 @@ uses unitDM;
 
 procedure TformCadPacientes.btnCadastrarClick(Sender: TObject);
 begin
+  edtNomePaciente.Enabled := True;
   edtNomePaciente.SetFocus;
 
   gridPaciente.ReadOnly := False;
@@ -69,7 +73,7 @@ begin
   btnSalvar.Enabled := True;
   btnCancelar.Enabled := True;
 
-  edtNomePaciente.Enabled := True;
+
   edtCPF.Enabled := True;
   edtCelular.Enabled := True;
   edtRG.Enabled := True;
@@ -86,7 +90,12 @@ procedure TformCadPacientes.btnVoltarClick(Sender: TObject);
     close;
   end;
 
-procedure TformCadPacientes.FormCreate(Sender: TObject);
+procedure TformCadPacientes.edtPesquisaChange(Sender: TObject);
+begin
+  DM.tbPaciente.Locate('nome', edtPesquisa.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TformCadPacientes.FormShow(Sender: TObject);
 begin
   gridPaciente.ReadOnly := True;
   btnCancelar.Enabled := False;

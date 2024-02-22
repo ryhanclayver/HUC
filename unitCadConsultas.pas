@@ -47,6 +47,8 @@ type
     procedure ComPlano1Click(Sender: TObject);
     procedure SemPlano1Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure edtNomeMedicoChange(Sender: TObject);
+    procedure edtNomePacienteChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -68,16 +70,18 @@ procedure TformCadConsultas.btnCadastrarClick(Sender: TObject);
 begin
   gridPaciente.ReadOnly := False;
   gridMedico.ReadOnly := False;
-  edtData.Enabled := True;
-  edtValor.Enabled := True;
+
   edtNomePaciente.Enabled := True;
   edtNomeMedico.Enabled := True;
+  edtData.Enabled := True;
+  edtValor.Enabled := True;
 
   DM.tbConsulta.Insert;
 end;
 
 procedure TformCadConsultas.btnCancelarClick(Sender: TObject);
 begin
+  DM.tbConsulta.Cancel;
   close;
 end;
 
@@ -92,10 +96,15 @@ begin
 
   gridPaciente.ReadOnly := True;
   gridMedico.ReadOnly := True;
+
   edtData.Enabled := False;
   edtValor.Enabled := False;
   edtNomePaciente.Enabled := False;
   edtNomeMedico.Enabled := False;
+
+  DM.QueryHistorico.Refresh;
+  DM.QueryCPlano.Refresh;
+  DM.QuerySPlano.Refresh;
 end;
 
 procedure TformCadConsultas.Cardiologista1Click(Sender: TObject);
@@ -108,15 +117,25 @@ begin
   formHistoricoComPlano.ShowModal;
 end;
 
+procedure TformCadConsultas.edtNomeMedicoChange(Sender: TObject);
+begin
+  DM.tbMedico.Locate('nome', edtNomeMedico.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+procedure TformCadConsultas.edtNomePacienteChange(Sender: TObject);
+begin
+  DM.tbPaciente.Locate('nome', edtNomePaciente.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
 procedure TformCadConsultas.FormCreate(Sender: TObject);
 begin
   gridPaciente.ReadOnly := True;
   gridMedico.ReadOnly := True;
 
-  edtData.Enabled := False;
-  edtValor.Enabled := False;
   edtNomePaciente.Enabled := False;
   edtNomeMedico.Enabled := False;
+  edtData.Enabled := False;
+  edtValor.Enabled := False;
 end;
 
 procedure TformCadConsultas.FormShow(Sender: TObject);

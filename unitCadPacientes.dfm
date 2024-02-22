@@ -5,7 +5,7 @@ object formCadPacientes: TformCadPacientes
   Caption = 'Cadastro de Pacientes'
   ClientHeight = 521
   ClientWidth = 786
-  Color = clBtnFace
+  Color = 16119006
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -13,12 +13,12 @@ object formCadPacientes: TformCadPacientes
   Font.Style = []
   OldCreateOrder = False
   Position = poDesktopCenter
-  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblNomePaciente: TLabel
-    Left = 3
-    Top = 88
+    Left = 2
+    Top = 72
     Width = 153
     Height = 23
     Caption = 'Nome Completo'
@@ -30,8 +30,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblCPF: TLabel
-    Left = 304
-    Top = 88
+    Left = 303
+    Top = 72
     Width = 35
     Height = 23
     Caption = 'CPF'
@@ -43,8 +43,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblCelular: TLabel
-    Left = 539
-    Top = 88
+    Left = 538
+    Top = 72
     Width = 67
     Height = 23
     Caption = 'Celular'
@@ -56,8 +56,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblNascimento: TLabel
-    Left = 3
-    Top = 160
+    Left = 2
+    Top = 144
     Width = 111
     Height = 23
     Caption = 'Nascimento'
@@ -69,8 +69,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblRG: TLabel
-    Left = 189
-    Top = 160
+    Left = 188
+    Top = 144
     Width = 28
     Height = 23
     Caption = 'RG'
@@ -82,8 +82,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblGenero: TLabel
-    Left = 418
-    Top = 160
+    Left = 417
+    Top = 144
     Width = 69
     Height = 23
     Caption = 'G'#234'nero'
@@ -95,8 +95,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object lblEndereco: TLabel
-    Left = 3
-    Top = 224
+    Left = 2
+    Top = 208
     Width = 88
     Height = 23
     Caption = 'Endere'#231'o'
@@ -108,8 +108,8 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
   end
   object btnVoltar: TSpeedButton
-    Left = 536
-    Top = 301
+    Left = 529
+    Top = 269
     Width = 129
     Height = 41
     Cursor = crHandPoint
@@ -328,8 +328,8 @@ object formCadPacientes: TformCadPacientes
     OnClick = btnVoltarClick
   end
   object btnSalvar: TSpeedButton
-    Left = 671
-    Top = 301
+    Left = 664
+    Top = 269
     Width = 107
     Height = 41
     Cursor = crHandPoint
@@ -548,8 +548,8 @@ object formCadPacientes: TformCadPacientes
     OnClick = btnSalvarClick
   end
   object btnCadastrar: TSpeedButton
-    Left = 8
-    Top = 302
+    Left = 1
+    Top = 270
     Width = 137
     Height = 40
     Caption = 'Cadastrar'
@@ -767,8 +767,8 @@ object formCadPacientes: TformCadPacientes
     OnClick = btnCadastrarClick
   end
   object btnDeletar: TSpeedButton
-    Left = 154
-    Top = 302
+    Left = 147
+    Top = 270
     Width = 118
     Height = 40
     Caption = 'Deletar'
@@ -986,8 +986,8 @@ object formCadPacientes: TformCadPacientes
     OnClick = btnDeletarClick
   end
   object btnCancelar: TSpeedButton
-    Left = 393
-    Top = 302
+    Left = 386
+    Top = 270
     Width = 135
     Height = 40
     Caption = 'Cancelar'
@@ -1205,8 +1205,8 @@ object formCadPacientes: TformCadPacientes
     OnClick = btnCancelarClick
   end
   object btnEditar: TSpeedButton
-    Left = 285
-    Top = 301
+    Left = 278
+    Top = 269
     Width = 100
     Height = 41
     Caption = 'Editar'
@@ -1423,6 +1423,19 @@ object formCadPacientes: TformCadPacientes
     ParentFont = False
     OnClick = btnEditarClick
   end
+  object Label1: TLabel
+    Left = 8
+    Top = 317
+    Width = 170
+    Height = 25
+    Caption = 'Pesquisar Nome'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -21
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+  end
   object pnlHeader: TPanel
     Left = 0
     Top = 0
@@ -1621,8 +1634,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 2
   end
   object edtNomePaciente: TDBEdit
-    Left = 3
-    Top = 117
+    Left = 2
+    Top = 101
     Width = 281
     Height = 26
     Color = clWhite
@@ -1637,8 +1650,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 3
   end
   object edtCPF: TDBEdit
-    Left = 304
-    Top = 117
+    Left = 303
+    Top = 101
     Width = 217
     Height = 26
     Color = clWhite
@@ -1655,8 +1668,8 @@ object formCadPacientes: TformCadPacientes
   end
   object edtCelular: TDBEdit
     AlignWithMargins = True
-    Left = 539
-    Top = 117
+    Left = 538
+    Top = 101
     Width = 239
     Height = 26
     Color = clWhite
@@ -1672,8 +1685,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 5
   end
   object edtRG: TDBEdit
-    Left = 189
-    Top = 189
+    Left = 188
+    Top = 173
     Width = 190
     Height = 26
     DataField = 'RG'
@@ -1687,8 +1700,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 6
   end
   object edtEndereco: TDBEdit
-    Left = 3
-    Top = 253
+    Left = 2
+    Top = 237
     Width = 470
     Height = 26
     DataField = 'ENDERECO'
@@ -1702,8 +1715,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 7
   end
   object comboGenero: TDBComboBox
-    Left = 418
-    Top = 189
+    Left = 417
+    Top = 173
     Width = 127
     Height = 26
     Style = csDropDownList
@@ -1722,8 +1735,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 8
   end
   object radioPlano: TDBRadioGroup
-    Left = 595
-    Top = 160
+    Left = 594
+    Top = 144
     Width = 150
     Height = 66
     Caption = 'Possui Plano?'
@@ -1741,8 +1754,8 @@ object formCadPacientes: TformCadPacientes
     TabOrder = 9
   end
   object dateNascimento: TDBEdit
-    Left = 3
-    Top = 189
+    Left = 2
+    Top = 173
     Width = 146
     Height = 26
     DataField = 'DATANASC'
@@ -1755,5 +1768,19 @@ object formCadPacientes: TformCadPacientes
     MaxLength = 10
     ParentFont = False
     TabOrder = 10
+  end
+  object edtPesquisa: TEdit
+    Left = 184
+    Top = 318
+    Width = 233
+    Height = 24
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Verdana'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
+    OnChange = edtPesquisaChange
   end
 end

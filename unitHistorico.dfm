@@ -455,6 +455,19 @@ object formHistorico: TformHistorico
     ParentFont = False
     OnClick = btnVoltarClick
   end
+  object lblPesquisa: TLabel
+    Left = 8
+    Top = 150
+    Width = 86
+    Height = 18
+    Caption = 'Pesquisar'
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Verdana'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
   object pnlHeader: TPanel
     Left = 0
     Top = 0
@@ -559,18 +572,36 @@ object formHistorico: TformHistorico
   end
   object gridConsulta: TDBGrid
     Left = 8
-    Top = 175
+    Top = 174
     Width = 770
     Height = 272
     DataSource = DM.dsHistorico
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
     ReadOnly = True
     TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Charset = ANSI_CHARSET
     TitleFont.Color = clWindowText
     TitleFont.Height = -11
-    TitleFont.Name = 'Tahoma'
-    TitleFont.Style = []
+    TitleFont.Name = 'Verdana'
+    TitleFont.Style = [fsBold]
     Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID_CONSULTA'
+        Font.Charset = ANSI_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Verdana'
+        Font.Style = []
+        Title.Caption = 'ID'
+        Width = 38
+        Visible = True
+      end
       item
         Expanded = False
         FieldName = 'NOME'
@@ -579,12 +610,7 @@ object formHistorico: TformHistorico
         Font.Height = -13
         Font.Name = 'Verdana'
         Font.Style = []
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -11
-        Title.Font.Name = 'Verdana'
-        Title.Font.Style = [fsBold]
-        Width = 606
+        Width = 525
         Visible = True
       end
       item
@@ -595,11 +621,6 @@ object formHistorico: TformHistorico
         Font.Height = -13
         Font.Name = 'Verdana'
         Font.Style = []
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -11
-        Title.Font.Name = 'Verdana'
-        Title.Font.Style = [fsBold]
         Visible = True
       end
       item
@@ -610,19 +631,15 @@ object formHistorico: TformHistorico
         Font.Height = -13
         Font.Name = 'Verdana'
         Font.Style = []
-        Title.Font.Charset = ANSI_CHARSET
-        Title.Font.Color = clWindowText
-        Title.Font.Height = -11
-        Title.Font.Name = 'Verdana'
-        Title.Font.Style = [fsBold]
         Visible = True
       end>
   end
   object edtPesquisa: TEdit
-    Left = 8
-    Top = 152
+    Left = 96
+    Top = 151
     Width = 289
     Height = 21
     TabOrder = 2
+    OnChange = edtPesquisaChange
   end
 end

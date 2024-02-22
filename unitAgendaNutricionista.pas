@@ -13,20 +13,21 @@ type
     lblNutricionista: TLabel;
     lblAgendamento: TLabel;
     imgLogoPequena: TImage;
-    gridConsulta: TDBGrid;
     btnVoltar: TSpeedButton;
     btnSalvar: TSpeedButton;
     btnDeletar: TSpeedButton;
     btnCancelar: TSpeedButton;
     btnEditar: TSpeedButton;
     edtPesquisa: TEdit;
+    Label1: TLabel;
+    gridConsulta: TDBGrid;
     procedure btnVoltarClick(Sender: TObject);
     procedure btnSalvarClick(Sender: TObject);
     procedure btnEditarClick(Sender: TObject);
     procedure btnDeletarClick(Sender: TObject);
     procedure btnCancelarClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure edtPesquisaChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,22 +56,32 @@ begin
 end;
 
 procedure TformAgendaNutri.btnDeletarClick(Sender: TObject);
+var
+  ID_Consulta : Integer;
 begin
-  if Application.MessageBox('Deseja mesmo deletar esse cadastro?','Deletar cadastro', MB_ICONQUESTION+MB_YESNO) = mrYes then
+    if Application.MessageBox('Deseja mesmo deletar essa consulta?','Deletar consulta', MB_ICONQUESTION+MB_YESNO) = mrYes then
     begin
-      btnSalvar.Enabled := False;
-      btnCancelar.Enabled := False;
-      btnDeletar.Enabled := True;
-      btnEditar.Enabled := True;
+      try
+        btnSalvar.Enabled := False;
+        btnCancelar.Enabled := False;
+        btnDeletar.Enabled := True;
+        btnEditar.Enabled := True;
 
-      DM.tbConsulta.Delete;
+        gridConsulta.ReadOnly := True;
 
-      DM.tbConsulta.Refresh;
-      gridConsulta.Refresh;
-      gridConsulta.ReadOnly := True;
+        ID_Consulta := DM.QueryNutricionista.FieldByName('id_consulta').AsInteger;
+
+        DM.qraux.SQL.Text := 'delete from consulta where id_consulta = :ID';
+        DM.qraux.ParamByName('ID').AsInteger := ID_Consulta;
+        DM.qraux.ExecSQL;
+        DM.QueryNutricionista.Refresh;
+
+      except
+        on e:exception do
+          showmessage('Erro ao efetuar operação: ' + e.Message);
+      end;
     end;
 end;
-
 procedure TformAgendaNutri.btnEditarClick(Sender: TObject);
 begin
   gridConsulta.ReadOnly := False;
@@ -100,20 +111,23 @@ begin
   Close;
 end;
 
-procedure TformAgendaNutri.FormCreate(Sender: TObject);
+procedure TformAgendaNutri.edtPesquisaChange(Sender: TObject);
 begin
+  DM.QueryNutricionista.Locate('nome', edtPesquisa.Text, [loPartialKey, loCaseInsensitive]);
+end;
+
+
+procedure TformAgendaNutri.FormShow(Sender: TObject);
+begin
+  DM.QueryNutricionista.Refresh;
+  gridConsulta.Refresh;
+
   gridConsulta.ReadOnly := True;
 
   btnSalvar.Enabled := False;
   btnCancelar.Enabled := False;
   btnDeletar.Enabled := True;
   btnEditar.Enabled := True;
-end;
-
-procedure TformAgendaNutri.FormShow(Sender: TObject);
-begin
-  DM.QueryNutricionista.Refresh;
-  gridConsulta.Refresh;
 end;
 
 end.
